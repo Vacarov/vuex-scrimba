@@ -14,4 +14,6 @@ const store = new  Vuex.Store({
     }
 });
 
+store.commit('increment');
+
 export default store;
