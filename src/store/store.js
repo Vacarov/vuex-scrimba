@@ -12,11 +12,17 @@ const store = new  Vuex.Store({
         ]
     },
     mutations: {
-      increment(state) {
-        state.count++;
-      }
+        increment(state) {
+            state.count++;
+        },
+        incrementBy(state, payload) {
+            state.count += payload.amount;
+        }
     },
     getters: {
+        count: state => {
+            return state.count;
+        },
         doneTodos: state => {
             return state.todos.filter(todo => todo.done);
         },
@@ -30,5 +36,6 @@ const store = new  Vuex.Store({
 });
 
 store.commit('increment');
+store.commit('incrementBy', {amount: 20});
 
 export default store;

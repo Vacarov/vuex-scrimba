@@ -2,12 +2,14 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
 
-<!--    <p>{{count}}</p>-->
+    <p>{{count}}</p>
 <!--    <p>{{countAlias}}</p>-->
 <!--    <p>{{countPlusLocalState}}</p>-->
     <p>{{doneTodos}}</p>
     <p>{{countDoneTodos}}</p>
     <p>{{getTodoById(doneTodos[0].id)}}</p>
+
+    <button @click="increment">Increment</button>
   </div>
 </template>
 
@@ -25,8 +27,13 @@ export default {
     }
   },
   computed: mapGetters([
-          'doneTodos', "countDoneTodos", "getTodoById"
-  ])
+          'count', 'doneTodos', "countDoneTodos", "getTodoById"
+  ]),
+  methods: {
+    increment() {
+      this.$store.commit('increment');
+    }
+  }
   // METHOD 1
   // computed: mapState({
   //   count: state => state.count,
