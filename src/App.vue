@@ -31,7 +31,7 @@ export default {
   ]),
   methods: {
     increment() {
-      this.$store.commit('increment');
+      this.$store.dispatch('incrementAsync');
     }
   }
   // METHOD 1

@@ -11,6 +11,13 @@ const store = new  Vuex.Store({
             {id: 2, text: 'yyy', done: false},
         ]
     },
+    actions: {
+        incrementAsync({commit}) {
+            setTimeout(() => {
+                commit('increment');
+            }, 1000)
+        }
+    },
     mutations: {
         increment(state) {
             state.count++;
@@ -31,7 +38,7 @@ const store = new  Vuex.Store({
         },
         getTodoById: state => (id) => {
             return state.todos.find(todo => todo.id === id);
-}
+        }
     }
 });
 
